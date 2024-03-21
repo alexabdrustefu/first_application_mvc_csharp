@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "aUSSiyC19J1ELxPZUQI/hLtYT98lzuXn2/FoK9PI7m/eJHfJnAfAOwzSzFJQb3CQLdHut4fP10mDAPZO0czBew==",
+  "dgSpecHash": "RDdUQtFf9fCv0uv+gwiIFEXR8aMXPWepUMJn7DNJ8YvIXfQwWC3rvUAEaEcJrQ7h1bHi9OgwCwG7vmbXW1vN9Q==",
   "success": true,
   "projectFilePath": "C:\\corso_c#\\first_mvc_pattern_c#\\first_mvc_pattern_c#.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\alessandro\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\alessandro\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\alessandro\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
     "C:\\Users\\alessandro\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",

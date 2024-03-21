@@ -1,7 +1,10 @@
-using Microsoft.AspNetCore.Mvc;
-using first_mvc_pattern_c_.Models;
-using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using AutoMapper;
 using first_mvc_pattern_c_.Data;
+using first_mvc_pattern_c_.Models;
+using first_mvc_pattern_c_.Services;
+using Microsoft.AspNetCore.Mvc;
 
 namespace first_mvc_pattern_c_.Controllers
 {
@@ -9,56 +12,57 @@ namespace first_mvc_pattern_c_.Controllers
     [ApiController]
     public class CinemasController : ControllerBase
     {
-        private readonly AppDbContext _context;
+        private readonly CinemaService _cinemaService;
+        private readonly IMapper _mapper;
 
-        public CinemasController(AppDbContext context)
+        public CinemasController(CinemaService cinemaService, IMapper mapper)
         {
-            _context = context;
+            _cinemaService = cinemaService ?? throw new ArgumentNullException(nameof(cinemaService));
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
-        // GET: api/cinemas
+        // GET: api/cinema
         [HttpGet]
-        public ActionResult<IEnumerable<Cinema>> GetCinemas()
+        public ActionResult<IEnumerable<CinemaDto>> GetCinemas()
         {
-            return _context.Cinemas.ToList();
+            var cinemas = _cinemaService.GetAllCinemas();
+            var cinemaDtos = _mapper.Map<IEnumerable<CinemaDto>>(cinemas);
+            return Ok(cinemaDtos);
         }
 
-        // GET: api/cinemas/5
+        // GET: api/cinema/5
         [HttpGet("{id}")]
-        public ActionResult<Cinema> GetCinema(int id)
+        public ActionResult<CinemaDto> GetCinema(int id)
         {
-            var cinema = _context.Cinemas.Find(id);
-
+            var cinema = _cinemaService.GetCinemaById(id);
             if (cinema == null)
             {
                 return NotFound();
             }
-
-            return cinema;
+            var cinemaDto = _mapper.Map<CinemaDto>(cinema);
+            return Ok(cinemaDto);
         }
 
-        // POST: api/cinemas
+        // POST: api/cinema
         [HttpPost]
-        public ActionResult<Cinema> PostCinema(Cinema cinema)
+        public ActionResult<CinemaDto> PostCinema(CinemaDto cinemaDto)
         {
-            _context.Cinemas.Add(cinema);
-            _context.SaveChanges();
-
-            return CreatedAtAction(nameof(GetCinema), new { id = cinema.CinemaId }, cinema);
+            var cinema = _mapper.Map<Cinema>(cinemaDto);
+            _cinemaService.AddCinema(cinema);
+            var createdCinemaDto = _mapper.Map<CinemaDto>(cinema);
+            return CreatedAtAction(nameof(GetCinema), new { id = createdCinemaDto.CinemaId }, createdCinemaDto);
         }
 
-        // PUT: api/cinemas/5
+        // PUT: api/cinema/5
         [HttpPut("{id}")]
-        public IActionResult PutCinema(int id, Cinema cinema)
+        public IActionResult PutCinema(int id, CinemaDto cinemaDto)
         {
-            if (id != cinema.CinemaId)
+            if (id != cinemaDto.CinemaId)
             {
                 return BadRequest();
             }
-
-            _context.Entry(cinema).State = EntityState.Modified;
-            _context.SaveChanges();
-
+            var cinemaToUpdate = _mapper.Map<Cinema>(cinemaDto);
+            _cinemaService.UpdateCinema(id,cinemaToUpdate);
             return NoContent();
         }
 
@@ -66,15 +70,7 @@ namespace first_mvc_pattern_c_.Controllers
         [HttpDelete("{id}")]
         public IActionResult DeleteCinema(int id)
         {
-            var cinema = _context.Cinemas.Find(id);
-            if (cinema == null)
-            {
-                return NotFound();
-            }
-
-            _context.Cinemas.Remove(cinema);
-            _context.SaveChanges();
-
+            _cinemaService.DeleteCinema(id);
             return NoContent();
         }
     }

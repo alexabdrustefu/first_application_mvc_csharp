@@ -1,4 +1,5 @@
 using first_mvc_pattern_c_.Data;
+using first_mvc_pattern_c_.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace first_mvc_pattern_c_
@@ -23,6 +24,11 @@ namespace first_mvc_pattern_c_
 
             // Configuro MVC
             services.AddControllers();
+
+            services.AddScoped<CinemaService>();
+
+
+            services.AddAutoMapper(typeof(Startup), typeof(CinemaProfile), typeof(FilmProfile));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
