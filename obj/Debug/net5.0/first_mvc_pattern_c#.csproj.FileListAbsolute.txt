@@ -1,0 +1,8 @@
+C:\corso_c#\first_mvc_pattern_c#\obj\Debug\net5.0\first_mvc_pattern_c#.csproj.AssemblyReference.cache
+C:\corso_c#\first_mvc_pattern_c#\obj\Debug\net5.0\first_mvc_pattern_c#.GeneratedMSBuildEditorConfig.editorconfig
+C:\corso_c#\first_mvc_pattern_c#\obj\Debug\net5.0\first_mvc_pattern_c#.AssemblyInfoInputs.cache
+C:\corso_c#\first_mvc_pattern_c#\obj\Debug\net5.0\first_mvc_pattern_c#.AssemblyInfo.cs
+C:\corso_c#\first_mvc_pattern_c#\obj\Debug\net5.0\first_mvc_pattern_c#.csproj.CoreCompileInputs.cache
+C:\corso_c#\first_mvc_pattern_c#\obj\Debug\net5.0\first_mvc_pattern_c#.MvcApplicationPartsAssemblyInfo.cache
+C:\corso_c#\first_mvc_pattern_c#\obj\Debug\net5.0\first_mvc_pattern_c#.RazorAssemblyInfo.cache
+C:\corso_c#\first_mvc_pattern_c#\obj\Debug\net5.0\first_mvc_pattern_c#.RazorAssemblyInfo.cs
