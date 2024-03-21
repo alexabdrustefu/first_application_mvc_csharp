@@ -9,12 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <!-- Rimuovi il riferimento al pacchetto MySql.Data.EntityFrameworkCore -->
+        <!-- Rimuovi il riferimento al pacchetto MySql.Data.EntityFrameworkCore -->
     <!-- <PackageReference Include="MySql.Data.EntityFrameworkCore" Version="8.0.22" /> -->
-    <!-- Altri riferimenti al pacchetto possono essere presenti qui -->
+        <!-- Altri riferimenti al pacchetto possono essere presenti qui -->
   </ItemGroup>
 
-  <ItemGroup>
+<ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.3" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.2" />
