@@ -56,5 +56,12 @@ namespace first_mvc_pattern_c_.Repository
             _context.Cinemas.Remove(cinema);
             _context.SaveChanges();
         }
+
+        public IEnumerable<Cinema> GetAllCinemasActive()
+        {
+            return _context.Cinemas
+                .FromSqlRaw("SELECT * FROM Cinemas WHERE IsActive = 1")
+                .ToList();
+        }
     }
 }

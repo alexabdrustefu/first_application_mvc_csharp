@@ -66,7 +66,7 @@ namespace first_mvc_pattern_c_.Controllers
             return NoContent();
         }
 
-        // DELETE: api/cinemas/5
+        // DELETE: api/cinema/5
         [HttpDelete("{id}")]
         public IActionResult DeleteCinema(int id)
         {

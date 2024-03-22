@@ -1,4 +1,6 @@
+using System.Text.Json.Serialization;
 using first_mvc_pattern_c_.Data;
+using first_mvc_pattern_c_.Repository;
 using first_mvc_pattern_c_.Services;
 using Microsoft.EntityFrameworkCore;
 
@@ -24,11 +26,14 @@ namespace first_mvc_pattern_c_
 
             // Configuro MVC
             services.AddControllers();
-
+            //aggiungo i due service
             services.AddScoped<CinemaService>();
+            services.AddScoped<FilmService>();
+            services.AddScoped<CinemaRepositoryImpl>();
 
-
+            //creo builder da dto a model
             services.AddAutoMapper(typeof(Startup), typeof(CinemaProfile), typeof(FilmProfile));
+
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

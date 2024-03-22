@@ -16,8 +16,8 @@ namespace first_mvc_pattern_c_.Data
         // Override del metodo OnModelCreating per configurare il modello
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Configura il modello, se necessario
             base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<Film>()
                 .HasOne(f => f.Cinema)
                 .WithMany(c => c.Films)

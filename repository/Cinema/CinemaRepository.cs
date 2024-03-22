@@ -4,6 +4,8 @@ namespace first_mvc_pattern_c_.Repository
 {
     public interface CinemaRepository
     {
+        IEnumerable<Cinema> GetAllCinemasActive();
+
         IEnumerable<Cinema> GetAllCinemas();
         Cinema GetCinemaById(int id);
         void AddCinema(Cinema cinema);
